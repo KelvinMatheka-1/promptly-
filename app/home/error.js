@@ -2,21 +2,25 @@
 
 import React from 'react';
 
-const error = ({ statusCode }) => {
-  return (
-    <div>
-      <h1>
-        {statusCode
-          ? `An error ${statusCode} occurred on server`
-          : 'An error occurred on client'}
-      </h1>
-    </div>
-  );
-};
+class ErrorPage extends React.Component {
+  static getInitialProps({ res, err }) {
+    const statusCode = res ? res.statusCode : err ? err.statusCode : null;
+    return { statusCode };
+  }
 
-error.getInitialProps = ({ res, err }) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : null;
-  return { statusCode };
-};
+  render() {
+    const { statusCode } = this.props;
 
-export default error;
+    return (
+      <div>
+        <h1>
+          {statusCode
+            ? `An error ${statusCode} occurred on server`
+            : 'An error occurred on client'}
+        </h1>
+      </div>
+    );
+  }
+}
+
+export default ErrorPage;
