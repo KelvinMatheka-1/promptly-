@@ -1,26 +1,22 @@
-// pages/_error.js
+"use client"
 
 import React from 'react';
 
-class ErrorPage extends React.Component {
-  static getInitialProps({ res, err }) {
-    const statusCode = res ? res.statusCode : err ? err.statusCode : null;
-    return { statusCode };
-  }
+const error = ({ statusCode }) => {
+  return (
+    <div>
+      <h1>
+        {statusCode
+          ? `An error ${statusCode} occurred on server`
+          : 'An error occurred on client'}
+      </h1>
+    </div>
+  );
+};
 
-  render() {
-    const { statusCode } = this.props;
+error.getInitialProps = ({ res, err }) => {
+  const statusCode = res ? res.statusCode : err ? err.statusCode : null;
+  return { statusCode };
+};
 
-    return (
-      <div>
-        <h1>
-          {statusCode
-            ? `An error ${statusCode} occurred on server`
-            : 'An error occurred on client'}
-        </h1>
-      </div>
-    );
-  }
-}
-
-export default ErrorPage;
+export default error;
