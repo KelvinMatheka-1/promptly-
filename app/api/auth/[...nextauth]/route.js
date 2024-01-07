@@ -13,6 +13,13 @@ const handler = NextAuth({
     })
   ],
   async session ({ session }){
+    const sessionUser = await User.findOne({
+      email: session.user.email
+    })
+
+    session.user.id = session.User._id.toString();
+
+    return session;
 
   },
   async signIn({ profile }){
@@ -31,6 +38,7 @@ const handler = NextAuth({
       }
 
       return true;
+
     }catch(error){
       console.log(error);
       return false;
