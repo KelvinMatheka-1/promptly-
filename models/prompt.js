@@ -5,4 +5,16 @@ const PromptSchema = new Schema ({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-})
+  prompt: {
+    type: String,
+    required: [true, 'prompt is required'],
+  },
+  tag: {
+    type: String,
+    required: [true, 'Tag is required'],
+  }
+});
+
+const Prompt = models.Prompt || model("Prompt", PromptSchema);
+
+export default Prompt;
