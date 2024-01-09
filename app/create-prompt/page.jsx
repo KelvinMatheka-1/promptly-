@@ -1,43 +1,41 @@
-"use client"
+"use client";
 
-import { useState } from 'react'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import Form from '@components/Form'
-import { POST } from '@app/api/auth/[...nextauth]/route'
+import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
+import Form from "@components/Form";
 
 const CreatePrompt = () => {
-  const [submitting, setsubmitting] = useState(false);
+  const router = useRouter();
+  const { data: session } = useSession();
 
-  const [post, setPost] = useState({
-    promot: '',
-    tag: '',
-  });
+  const [submitting, setIsSubmitting] = useState(false);
+  const [post, setPost] = useState({ prompt: "", tag: "" });
 
   const createPrompt = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    setsubmitting(true);
-
-    try{
-      const response = await fetch('/api/prompt/new', {
-        method: POST,
+    try {
+      const response = await fetch("/api/prompt/new", {
+        method: "POST",
         body: JSON.stringify({
           prompt: post.prompt,
           userId: session?.user.id,
-          tag: post.tag
-        })
-      })
-      if(response.ok){
-        RouterContext.push('/');
-      }
+          tag: post.tag,
+        }),
+      });
 
-    }catch(error){
+      if (response.ok) {
+        router.push("/");
+      }
+    } catch (error) {
       console.log(error);
-    }finally{
-      setsubmitting(false);
+    } finally {
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <Form
@@ -46,8 +44,8 @@ const CreatePrompt = () => {
       setPost={setPost}
       submitting={submitting}
       handleSubmit={createPrompt}
-      />
-  )
-}
+    />
+  );
+};
 
-export default CreatePrompt
+export default CreatePrompt;
