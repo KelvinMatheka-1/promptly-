@@ -1,20 +1,21 @@
 "use client"
+
 import { useState, useEffect } from 'react'
 import PromptCard from "./PromptCard"
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
     <div className='mt-16 prompt_layout'>
-      {data.map((posts) => (
+      {data.map((post) => (
         <PromptCard 
-          key={posts._id}
+          key={post._id}
           post={post}
           handleTagClick={handleTagClick}
         />
       ))}
     </div>
-  )
-}
+  );
+};
 
 const Feed = () => {
 
@@ -29,8 +30,10 @@ const Feed = () => {
     const fetchPosts = async () => {
       const response = await fetch('api/prompt');
       const data = await response.json();
-    }
 
+      setPosts(data);
+    }
+    console.log(posts)
     fetchPosts();
   }, []);
 
