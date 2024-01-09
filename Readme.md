@@ -1,6 +1,6 @@
 A comprehensive CRUD AI prompt-sharing system utilizing a MongoDB database and implementing NextAuth authentication.
 
-live link: https://promptly-pqim57oo1-kelvinmatheka-1.vercel.app/
+live link: https://promptly-ebon.vercel.app/
 
 ![Screenshot from 2024-01-10 01-07-22](https://github.com/KelvinMatheka-1/ctrlsend-main-web/assets/110156045/d03b1045-05e9-4e87-957e-430319da6b9f)
 ![Screenshot from 2024-01-10 01-07-49](https://github.com/KelvinMatheka-1/ctrlsend-main-web/assets/110156045/05ddf7e2-9d54-4cb3-b83d-b40df0d11d20)
