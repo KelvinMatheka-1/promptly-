@@ -13,7 +13,7 @@ MongoDB
 NextAuth
 TailwindCSS
 🔋 Features
-👉 Modern Design with Glassmorphism Trend Style: A modern and visually appealing design, incorporating the glassmorphism trend style for a sleek and contemporary appearance.
+👉 Modern Design with Glassmorphism Trend Style: A modern and visually appealing design, incorporating the glass morphism trend style for a sleek and contemporary appearance.
 
 👉 Discover and Share AI Prompts: Allow users to discover AI prompts shared by the community and create their own prompts to share with the world.
 
@@ -45,9 +45,7 @@ Node.js
 npm (Node Package Manager)
 Cloning the Repository
 
-git clone https://github.com/adrianhajdin/project_next_13_ai_prompt_sharing.git
-cd project_next_13_ai_prompt_sharing
-Installation
+
 
 Install the project dependencies using npm:
 
