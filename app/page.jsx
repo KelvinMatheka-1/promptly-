@@ -1,4 +1,6 @@
-import Feed from '@components/Feed'
+import React from 'react';
+import Feed from '@components/Feed';
+import { Tweet } from 'react-tweet';
 
 const Home = () => {
   return (
@@ -11,11 +13,15 @@ const Home = () => {
         </span>
       </h1>
       <p className="desc text-center">
-        Nena is an open source AI prompting tool for modern world to discover, create and share creative prompts
+        Nena is an open source AI prompting tool for the modern world to discover, create, and share creative prompts
       </p>
       <Feed />
     </section>
-  )
+  );
 }
 
-export default Home
+const Page = () => {
+  return <Tweet id="1628832338187636740" />;
+}
+
+export { Home, Page };

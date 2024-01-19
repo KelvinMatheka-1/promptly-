@@ -66,3 +66,5 @@ Running the Project
 
 npm run dev
 Open http://localhost:3000 in your browser to view the project.
+
+![giphy1](https://user-images.githubusercontent.com/110156045/224490043-5eda5583-981a-4047-89bb-1ab3d695093d.gif)
